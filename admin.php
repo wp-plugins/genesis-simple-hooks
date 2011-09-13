@@ -199,12 +199,12 @@ function simplehooks_settings_admin() {
 		<?php wp_nonce_field( 'meta-box-order', 'meta-box-order-nonce', false ); ?>
 		<?php settings_fields( SIMPLEHOOKS_SETTINGS_FIELD ); // important! ?>
 
-		<?php screen_icon( 'plugins' ); ?>
 		<h2>
-			<?php _e( 'Genesis - Simple Hooks', 'genesis' ); ?>
-			<input type="submit" class="button-primary add-new-h2" value="<?php _e( 'Save Changes', 'simplehooks' ) ?>" />
-			<?php $reset_onclick = 'onclick="if ( confirm(\'' . esc_js( __( 'Are you sure you want to reset?', 'simplehooks' ) ) . '\' ) ) {return true;}return false;"'; ?>
-			<input type="submit" <?php echo $reset_onclick; ?> class="button-highlighted add-new-h2" name="<?php echo SIMPLEHOOKS_SETTINGS_FIELD; ?>[reset]" value="<?php _e( 'Reset All', 'simplehooks' ); ?>" />
+			<?php
+			echo esc_html( get_admin_page_title() );
+			submit_button( __( 'Save Settings', 'genesis' ), 'button-primary genesis-h2-button', 'submit', false );
+			submit_button( __( 'Reset Settings', 'genesis' ), 'button-secondary genesis-h2-button', GENESIS_SETTINGS_FIELD . '[reset]', false, array( 'onclick' => 'return genesis_confirm(\'' . esc_js( __( 'Are you sure you want to reset?', 'genesis' ) ) . '\');' ) );
+			?>
 		</h2>
 
 		<?php
