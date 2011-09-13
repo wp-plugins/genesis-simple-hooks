@@ -204,7 +204,7 @@ function simplehooks_settings_admin() {
 			<?php
 			echo esc_html( get_admin_page_title() );
 			submit_button( __( 'Save Settings', 'genesis' ), 'button-primary genesis-h2-button', 'submit', false );
-			submit_button( __( 'Reset Settings', 'genesis' ), 'button-secondary genesis-h2-button', GENESIS_SETTINGS_FIELD . '[reset]', false, array( 'onclick' => 'return genesis_confirm(\'' . esc_js( __( 'Are you sure you want to reset?', 'genesis' ) ) . '\');' ) );
+			submit_button( __( 'Reset Settings', 'genesis' ), 'button-secondary genesis-h2-button', SIMPLEHOOKS_SETTINGS_FIELD . '[reset]', false, array( 'onclick' => 'return genesis_confirm(\'' . esc_js( __( 'Are you sure you want to reset?', 'genesis' ) ) . '\');' ) );
 			?>
 		</h2>
 
@@ -213,7 +213,7 @@ function simplehooks_settings_admin() {
 			update_option( SIMPLEHOOKS_SETTINGS_FIELD, simplehooks_defaults() );
 			echo '<div id="message" class="updated" id="message"><p><strong>' . __( 'Modifications Reset', 'simplehooks' ) . '</strong></p></div>';
 		}
-		elseif( isset($_REQUEST['updated']) && $_REQUEST['updated'] == 'true' ) {
+		elseif( isset($_REQUEST['settings-updated']) && $_REQUEST['settings-updated'] == 'true' ) {
 			echo '<div id="message" class="updated" id="message"><p><strong>' . __( 'Modifications Saved', 'simplehooks' ) . '</strong></p></div>';
 		}
 		?>
