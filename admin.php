@@ -134,7 +134,7 @@ function simplehooks_settings_init() {
 	global $_simplehooks_settings_pagehook;
 
 	// Add "Design Settings" submenu
-	$_simplehooks_settings_pagehook = add_submenu_page( 'genesis', __( 'Simple Hooks','simplehooks' ), __( 'Simple Hooks','simplehooks' ), 'manage_options', 'simplehooks', 'simplehooks_settings_admin' );
+	$_simplehooks_settings_pagehook = add_submenu_page( 'genesis', __( 'Genesis - Simple Hooks','simplehooks' ), __( 'Simple Hooks','simplehooks' ), 'manage_options', 'simplehooks', 'simplehooks_settings_admin' );
 
 	add_action( 'load-'.$_simplehooks_settings_pagehook, 'simplehooks_settings_scripts' );
 	add_action( 'load-'.$_simplehooks_settings_pagehook, 'simplehooks_settings_boxes' );
@@ -199,6 +199,7 @@ function simplehooks_settings_admin() {
 		<?php wp_nonce_field( 'meta-box-order', 'meta-box-order-nonce', false ); ?>
 		<?php settings_fields( SIMPLEHOOKS_SETTINGS_FIELD ); // important! ?>
 
+		<?php screen_icon( 'plugins' ); ?>
 		<h2>
 			<?php
 			echo esc_html( get_admin_page_title() );
